@@ -1,0 +1,4 @@
+---
+
+firewalld_trusted_interfaces:
+  - docker0

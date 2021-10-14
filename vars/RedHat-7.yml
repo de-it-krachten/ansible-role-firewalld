@@ -1,0 +1,6 @@
+---
+
+firewalld_packages:
+  - firewalld
+  - python-firewall
+  - firewalld-filesystem

@@ -1,0 +1,47 @@
+---
+
+- name: Load variables based on OS type
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml'
+        - '{{ ansible_os_family }}.yml'
+        - default.yml
+      paths:
+        - 'vars'
+
+- name: Populate service facts
+  service_facts:
+
+- name: Install firewalld packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ firewalld_packages }}"
+
+- name: Disable iptables
+  systemd:
+    name: iptables
+    state: stopped
+    enabled: no
+    masked: yes
+  when: ansible_facts.services['iptables.service'] is defined
+
+- name: Enable firewalld
+  systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+    masked: no
+
+- name: Add trusted interfaces to trusted zone
+  firewalld:
+    zone: trusted
+    state: enabled
+    permanent: yes
+    interface: "{{ item }}"
+  loop: "{{ firewalld_trusted_interfaces }}"
+  when: item in ansible_interfaces

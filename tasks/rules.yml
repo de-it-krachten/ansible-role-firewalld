@@ -1,0 +1,11 @@
+---
+
+- name: Open firewall ports
+  firewalld:
+    port: "{{ item.port+'/'+item.protocol if item.port is defined else omit }}"
+    service: "{{ item.service if item.service is defined else omit }}"
+    immediate: yes
+    permanent: yes
+    zone: public
+    state: enabled
+  loop: "{{ firewalld_rules }}"
