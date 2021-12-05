@@ -3,7 +3,7 @@
 role_description: |
   Install & configure firewalld
 
-molecule_execute: true
+molecule_execute: false
 
 platforms:
   - name: CentOS 7
