@@ -1,4 +1,5 @@
 ---
 
+# interfaces in trused zone
 firewalld_trusted_interfaces:
   - docker0

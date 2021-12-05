@@ -1,0 +1,12 @@
+---
+
+role_description: |
+  Install & configure firewalld
+
+molecule_execute: false
+
+platforms:
+  - name: CentOS 7
+    image: centos7
+  - name: CentOS 8
+    image: centos8
