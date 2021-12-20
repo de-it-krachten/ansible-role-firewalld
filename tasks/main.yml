@@ -13,14 +13,20 @@
       paths:
         - 'vars'
 
-- name: Populate service facts
-  service_facts:
+- name: Show support message
+  fail:
+    msg:
+      - "Role 'firewalld' is not supported on {{ ansible_distribution }} {{ ansible_distribution_major_version }}"
+  when: firewalld_unsupported is defined and not firewalld_unsupported
 
 - name: Install firewalld packages
-  yum:
+  package:
     name: "{{ item }}"
     state: present
   loop: "{{ firewalld_packages }}"
+
+- name: Populate service facts
+  service_facts:
 
 - name: Disable iptables
   systemd:
@@ -28,7 +34,10 @@
     state: stopped
     enabled: no
     masked: yes
-  when: ansible_facts.services['iptables.service'] is defined
+    daemon_reload: yes
+  when:
+    - ansible_facts.services['iptables.service'] is defined
+    - ansible_facts.services['iptables.service']['status'] not in [ 'disabled', 'not-found' ]
 
 - name: Enable firewalld
   systemd:
@@ -36,6 +45,7 @@
     state: started
     enabled: yes
     masked: no
+    daemon_reload: yes
 
 - name: Add trusted interfaces to trusted zone
   firewalld:
