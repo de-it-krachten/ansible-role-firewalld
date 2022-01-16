@@ -1,0 +1,4 @@
+generic:
+  role_description: |
+    Install & configure firewalld on RedHat
+    
