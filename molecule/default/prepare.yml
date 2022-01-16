@@ -55,6 +55,18 @@
           command: yum makecache
           changed_when: false
 
+        - name: Install default packages
+          package:
+            name:
+              - openssh-server
+              - openssh-clients
+            state: present
+
+        - name: Activate epel repository
+          include_role:
+            name: robertdebock.epel
+          when: activate_epel is defined and activate_epel|bool
+
       when: ansible_os_family == 'RedHat' and (ansible_distribution_major_version|int) < 8
 
     - block:
@@ -69,6 +81,23 @@
         - name: Update DNF cache
           dnf:
             update_cache: yes
+
+        - name: Install default packages
+          package:
+            name:
+              - openssh-server
+              - openssh-clients
+            state: present
+
+        - name: Activate epel repository
+          include_role:
+            name: robertdebock.epel
+          when: activate_epel is defined and activate_epel|bool
+
+        - name: Activate powertools repository
+          include_role:
+            name: robertdebock.powertools
+          when: activate_powertools is defined and activate_powertools|bool
 
       when: ansible_os_family == 'RedHat' and (ansible_distribution_major_version|int) >= 8
 
