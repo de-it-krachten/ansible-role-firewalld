@@ -3,7 +3,8 @@
 
 # ansible-role-firewalld
 
-Install & configure firewalld on RedHat
+Install & configure firewalld
+
 
 Platforms
 --------------

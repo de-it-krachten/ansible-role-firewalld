@@ -1,4 +1,5 @@
 generic:
   role_description: |
-    Install & configure firewalld on RedHat
-    
+    Install & configure firewalld
+github:
+  fail_fast: false
