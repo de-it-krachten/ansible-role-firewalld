@@ -13,14 +13,16 @@ Supported platforms
 
 - CentOS 7
 - CentOS 8
+- RockyLinux 8
+- AlmaLinux 8
+- Debian 11 (Bullseye)
+- Ubuntu 20.04 LTS
 
 
 
 Role Variables
 --------------
 <pre><code>
-
-
 # interfaces in trused zone
 firewalld_trusted_interfaces:
   - docker0
@@ -31,12 +33,11 @@ Example Playbook
 ----------------
 
 <pre><code>
-
-- name: Converge
+- name: sample playbook for role 'firewalld'
   hosts: all
+  vars:
   tasks:
-
-    - name: "Include role 'ansible-role-firewalld'"
+    - name: Include role 'firewalld'
       include_role:
-        name: "ansible-role-firewalld"
+        name: firewalld
 </pre></code>
