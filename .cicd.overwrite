@@ -1,5 +1,25 @@
 generic:
   role_description: |
     Install & configure firewalld
+platforms:
+  - name: CentOS 7
+    image: centos7
+  - name: CentOS 8
+    image: centos8
+  - name: RockyLinux 8
+    image: rockylinux8
+  - name: AlmaLinux 8
+    image: almalinux8
+  - name: Debian 11 (Bullseye)
+    image: debian11
+  - name: Ubuntu 20.04 LTS
+    image: ubuntu2004
 github:
   fail_fast: false
+molecule:
+  platforms:
+    - centos7
+    - centos8
+    - rockylinux8
+    - debian11
+    - ubuntu2004

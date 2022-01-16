@@ -15,9 +15,7 @@ Supported platforms
 - CentOS 8
 - RockyLinux 8
 - AlmaLinux 8
-- Debian 10 (Buster)
 - Debian 11 (Bullseye)
-- Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
 
 
