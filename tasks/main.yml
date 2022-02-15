@@ -57,11 +57,24 @@
     masked: no
     daemon_reload: yes
 
-- name: Add trusted interfaces to trusted zone
+- name: Add trusted interfaces to zone 'trusted'
   firewalld:
     zone: trusted
     state: enabled
     permanent: yes
     interface: "{{ item }}"
   loop: "{{ firewalld_trusted_interfaces }}"
-  when: ansible_interfaces is defined and item in ansible_interfaces
+  when:
+    - ansible_interfaces is defined
+    - item in ansible_interfaces
+
+- name: Remove docker0 from zone 'trusted'
+  firewalld:
+    zone: trusted
+    state: disabled
+    permanent: yes
+    interface: docker0
+  when:
+    - ansible_interfaces is defined
+    - 'docker0' in ansible_interfaces
+    - 'docker0' not in firewalld_trusted_interfaces
