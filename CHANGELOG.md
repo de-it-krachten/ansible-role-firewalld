@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.0.0...v1.0.1) (2022-02-26)
+
+
+### Bug Fixes
+
+* Remove 'docker0' from zone 'trusted' as it breaks Docker ([067033f](https://github.com/de-it-krachten/ansible-role-firewalld/commit/067033fd9704d6e54a53956ee68041fb5459da0f))
+* remove docker0 from zone trusted ([611878b](https://github.com/de-it-krachten/ansible-role-firewalld/commit/611878b4a2a0db024696005018dea28628866c12))
+
 # 1.0.0 (2022-01-16)
 
 
