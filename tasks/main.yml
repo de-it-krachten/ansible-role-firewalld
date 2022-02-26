@@ -72,9 +72,10 @@
   firewalld:
     zone: trusted
     state: disabled
+    immediate: yes
     permanent: yes
     interface: docker0
   when:
     - ansible_interfaces is defined
-    - 'docker0' in ansible_interfaces
-    - 'docker0' not in firewalld_trusted_interfaces
+    - "'docker0' in ansible_interfaces"
+    - "'docker0' not in firewalld_trusted_interfaces"
