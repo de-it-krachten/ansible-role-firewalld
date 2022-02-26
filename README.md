@@ -24,8 +24,7 @@ Role Variables
 --------------
 <pre><code>
 # interfaces in trused zone
-firewalld_trusted_interfaces:
-  - docker0
+firewalld_trusted_interfaces: []
 </pre></code>
 
 
