@@ -3,6 +3,10 @@ generic:
     Install & configure firewalld
 
 platforms:
+  - name: Red Hat Enterprise Linux 7
+    ci: false
+  - name: Red Hat Enterprise Linux 8
+    ci: false
   - name: CentOS 7
     image: centos7
   - name: CentOS 8
@@ -10,11 +14,13 @@ platforms:
   - name: RockyLinux 8
     image: rockylinux8
   - name: AlmaLinux 8
-    image: almalinux8
+    ci: false
   - name: Debian 11 (Bullseye)
     image: debian11
   - name: Ubuntu 20.04 LTS
     image: ubuntu2004
+  - name: Ubuntu 22.04 LTS
+    image: ubuntu2204
   - name: Fedora 35
     image: fedora35
   - name: Fedora 36
@@ -35,6 +41,8 @@ molecule:
       image: "geerlingguy/docker-debian11-ansible:latest"
     - name: ubuntu2004
       image: "geerlingguy/docker-ubuntu2004-ansible:latest"
+    - name: ubuntu2204
+      image: "geerlingguy/docker-ubuntu2204-ansible:latest"
     - name: fedora35
       image: "geerlingguy/docker-fedora36-ansible:latest"
     - name: fedora36
