@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.0.1...v1.1.0) (2022-06-26)
+
+
+### Features
+
+* Add support for Fedora ([8b869be](https://github.com/de-it-krachten/ansible-role-firewalld/commit/8b869be9d7156766c9de582b83b3be9d97077d9a))
+
 ## [1.0.1](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.0.0...v1.0.1) (2022-02-26)
 
 
