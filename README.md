@@ -16,6 +16,7 @@ Supported platforms
 - CentOS 7
 - CentOS 8
 - RockyLinux 8
+- RockyLinux 9
 - OracleLinux 8
 - AlmaLinux 8
 - AlmaLinux 9
@@ -70,7 +71,7 @@ firewalld_packages:
 <pre><code>
 - name: sample playbook for role 'firewalld'
   hosts: all
-  vars:
+  become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'firewalld'
       include_role:
