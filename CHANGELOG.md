@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.1.0...v1.2.0) (2022-07-28)
+
+
+### Features
+
+* Implement ansible-lint v6 support ([327aecb](https://github.com/de-it-krachten/ansible-role-firewalld/commit/327aecbbe425c1adcb7e80b36f75c68fa781d5df))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.0.1...v1.1.0) (2022-06-26)
 
 
