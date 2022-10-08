@@ -1,7 +1,7 @@
 ---
 
 - name: Load variables based on OS type
-  include_vars: "{{ lookup('first_found', params) }}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
@@ -14,32 +14,32 @@
         - 'vars'
 
 - name: Supported on Debian >= 11
-  fail:
+  ansible.builtin.fail:
     msg: Not supported on {{ ansible_distribution }} < 11
   when: ansible_distribution == 'Debian' and ansible_distribution_major_version|int < 11
 
 - name: Supported on Ubuntu >= 20
-  fail: 
+  ansible.builtin.fail: 
     msg: Not supported on {{ ansible_distribution }} < 20
   when: ansible_distribution == 'Ubuntu' and ansible_distribution_major_version|int < 20
 
 - name: Show support message
-  fail:
+  ansible.builtin.fail:
     msg:
       - "Role 'firewalld' is not supported on {{ ansible_distribution }} {{ ansible_distribution_major_version }}"
   when: firewalld_unsupported is defined and not firewalld_unsupported
 
 - name: Install firewalld packages
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   loop: "{{ firewalld_packages }}"
 
 - name: Populate service facts
-  service_facts:
+  ansible.builtin.service_facts:
 
 - name: Disable iptables
-  systemd:
+  ansible.builtin.systemd:
     name: iptables
     state: stopped
     enabled: no
@@ -50,7 +50,7 @@
     - ansible_facts.services['iptables.service']['status'] not in [ 'disabled', 'not-found' ]
 
 - name: Enable firewalld
-  systemd:
+  ansible.builtin.systemd:
     name: firewalld
     state: started
     enabled: yes
@@ -58,7 +58,7 @@
     daemon_reload: yes
 
 - name: Add trusted interfaces to zone 'trusted'
-  firewalld:
+  ansible.posix.firewalld:
     zone: trusted
     state: enabled
     permanent: yes
@@ -69,7 +69,7 @@
     - item in ansible_interfaces
 
 - name: Remove docker0 from zone 'trusted'
-  firewalld:
+  ansible.posix.firewalld:
     zone: trusted
     state: disabled
     immediate: yes
