@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.2.0...v1.3.0) (2022-10-12)
+
+
+### Features
+
+* Move to FQCN ([21a1eef](https://github.com/de-it-krachten/ansible-role-firewalld/commit/21a1eef3f371963a205a0102b5167f42b98ee426))
+* Update CI to latest standards ([a6eb02f](https://github.com/de-it-krachten/ansible-role-firewalld/commit/a6eb02f29b7e0080745024c8f393ec432ef87161))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.1.0...v1.2.0) (2022-07-28)
 
 
