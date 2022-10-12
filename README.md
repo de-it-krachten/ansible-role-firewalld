@@ -6,6 +6,16 @@
 Install & configure firewalld
 
 
+
+## Dependencies
+
+#### Roles
+None
+
+#### Collections
+- community.general
+- ansible.posix
+
 ## Platforms
 
 Supported platforms
@@ -14,7 +24,6 @@ Supported platforms
 - Red Hat Enterprise Linux 8<sup>1</sup>
 - Red Hat Enterprise Linux 9<sup>1</sup>
 - CentOS 7
-- CentOS 8
 - RockyLinux 8
 - RockyLinux 9
 - OracleLinux 8
@@ -35,6 +44,7 @@ Note:
 # interfaces in trused zone
 firewalld_trusted_interfaces: []
 </pre></code>
+
 
 ### vars/family-RedHat.yml
 <pre><code>
@@ -74,6 +84,6 @@ firewalld_packages:
   become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'firewalld'
-      include_role:
+      ansible.builtin.include_role:
         name: firewalld
 </pre></code>
