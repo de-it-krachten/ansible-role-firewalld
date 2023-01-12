@@ -1,6 +1,6 @@
 ---
 
-- name: Open firewall ports
+- name: Open firewall ports  # noqa args[module]
   ansible.posix.firewalld:
     port: "{{ item.port + '/' + item.protocol if item.port is defined else omit }}"
     service: "{{ item.service if item.service is defined else omit }}"
