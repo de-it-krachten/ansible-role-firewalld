@@ -47,6 +47,13 @@ firewalld_trusted_interfaces: []
 </pre></code>
 
 
+### vars/family-Debian.yml
+<pre><code>
+firewalld_packages:
+  - firewalld
+  - python3-firewall
+</pre></code>
+
 ### vars/family-RedHat.yml
 <pre><code>
 firewalld_packages:
@@ -55,24 +62,17 @@ firewalld_packages:
   - firewalld-filesystem
 </pre></code>
 
-### vars/default.yml
-<pre><code>
-firewalld_unsupported: true
-</pre></code>
-
-### vars/family-Debian.yml
-<pre><code>
-firewalld_packages:
-  - firewalld
-  - python3-firewall
-</pre></code>
-
 ### vars/family-RedHat-7.yml
 <pre><code>
 firewalld_packages:
   - firewalld
   - python-firewall
   - firewalld-filesystem
+</pre></code>
+
+### vars/default.yml
+<pre><code>
+firewalld_unsupported: true
 </pre></code>
 
 
