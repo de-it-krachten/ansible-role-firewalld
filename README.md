@@ -30,11 +30,13 @@ Supported platforms
 - OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
+- SUSE Linux Enterprise<sup>1</sup>
+- openSUSE Leap 15
 - Debian 11 (Bullseye)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 36
 - Fedora 37
+- Fedora 38
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -42,19 +44,28 @@ Note:
 ## Role Variables
 ### defaults/main.yml
 <pre><code>
+# Default to fall back onto
+firewalld_unsupported: true
+
 # interfaces in trused zone
 firewalld_trusted_interfaces: []
 </pre></code>
 
-
-### vars/family-Debian.yml
+### defaults/family-Debian.yml
 <pre><code>
 firewalld_packages:
   - firewalld
   - python3-firewall
 </pre></code>
 
-### vars/family-RedHat.yml
+### defaults/family-Suse.yml
+<pre><code>
+firewalld_packages:
+  - firewalld
+  - python3-firewall
+</pre></code>
+
+### defaults/family-RedHat.yml
 <pre><code>
 firewalld_packages:
   - firewalld
@@ -62,7 +73,7 @@ firewalld_packages:
   - firewalld-filesystem
 </pre></code>
 
-### vars/family-RedHat-7.yml
+### defaults/family-RedHat-7.yml
 <pre><code>
 firewalld_packages:
   - firewalld
@@ -70,10 +81,6 @@ firewalld_packages:
   - firewalld-filesystem
 </pre></code>
 
-### vars/default.yml
-<pre><code>
-firewalld_unsupported: true
-</pre></code>
 
 
 

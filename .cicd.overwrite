@@ -6,15 +6,12 @@ generic:
 
 # Supported platforms
 platforms:
+  opensuse15:
+    ci: true
+    supported: true
+  sles15:
+    ci: false
+    supported: true
   debian10:
     ci: false
     supported: false
-  ubuntu1804:
-    ci: false
-    supported: false
-  fedora36:
-    ci: true
-    supported: true
-  fedora37:
-    ci: true
-    supported: true
