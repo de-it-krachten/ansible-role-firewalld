@@ -1,0 +1,52 @@
+---
+
+- name: Install firewalld packages
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ firewalld_packages }}"
+
+- name: Populate service facts
+  ansible.builtin.service_facts:
+
+- name: Disable iptables
+  ansible.builtin.systemd:
+    name: iptables
+    state: stopped
+    enabled: no
+    masked: yes
+    daemon_reload: yes
+  when:
+    - ansible_facts.services['iptables.service'] is defined
+    - ansible_facts.services['iptables.service']['status'] not in [ 'disabled', 'not-found' ]
+
+- name: Enable firewalld
+  ansible.builtin.systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+    masked: no
+    daemon_reload: yes
+
+- name: Add trusted interfaces to zone 'trusted'
+  ansible.posix.firewalld:
+    zone: trusted
+    state: enabled
+    permanent: yes
+    interface: "{{ item }}"
+  loop: "{{ firewalld_trusted_interfaces }}"
+  when:
+    - ansible_interfaces is defined
+    - item in ansible_interfaces
+
+- name: Remove docker0 from zone 'trusted'
+  ansible.posix.firewalld:
+    zone: trusted
+    state: disabled
+    immediate: yes
+    permanent: yes
+    interface: docker0
+  when:
+    - ansible_interfaces is defined
+    - "'docker0' in ansible_interfaces"
+    - "'docker0' not in firewalld_trusted_interfaces"
