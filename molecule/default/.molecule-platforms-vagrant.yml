@@ -56,6 +56,10 @@
   ci: true
   box: generic/debian11
   interfaces: [{'network_name': 'private_network', 'type': 'dhcp', 'auto_config': True}]
+- name: debian12
+  ci: true
+  box: generic/debian12
+  interfaces: [{'network_name': 'private_network', 'type': 'dhcp', 'auto_config': True}]
 - name: ubuntu1804
   ci: false
   box: generic/ubuntu1804
