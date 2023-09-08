@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.5.0...v1.5.1) (2023-09-08)
+
+
+### Bug Fixes
+
+* Fix loop label to string ([3941605](https://github.com/de-it-krachten/ansible-role-firewalld/commit/39416051d0d36fa456def7a8f2cbf4f0f4a009d8))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.4.0...v1.5.0) (2023-08-14)
 
 
