@@ -13,7 +13,6 @@ Install & configure firewalld
 None
 
 #### Collections
-- community.general
 - ansible.posix
 
 ## Platforms
@@ -36,8 +35,9 @@ Supported platforms
 - Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 37
-- Fedora 38
+- Ubuntu 24.04 LTS
+- Fedora 39
+- Fedora 40
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -59,11 +59,12 @@ firewalld_packages:
   - python3-firewall
 </pre></code>
 
-### defaults/family-Suse.yml
+### defaults/family-RedHat-7.yml
 <pre><code>
 firewalld_packages:
   - firewalld
-  - python3-firewall
+  - python-firewall
+  - firewalld-filesystem
 </pre></code>
 
 ### defaults/family-RedHat.yml
@@ -74,12 +75,11 @@ firewalld_packages:
   - firewalld-filesystem
 </pre></code>
 
-### defaults/family-RedHat-7.yml
+### defaults/family-Suse.yml
 <pre><code>
 firewalld_packages:
   - firewalld
-  - python-firewall
-  - firewalld-filesystem
+  - python3-firewall
 </pre></code>
 
 
@@ -90,7 +90,7 @@ firewalld_packages:
 <pre><code>
 - name: sample playbook for role 'firewalld'
   hosts: all
-  become: "yes"
+  become: 'yes'
   tasks:
     - name: Include role 'firewalld'
       ansible.builtin.include_role:
