@@ -15,3 +15,6 @@ platforms:
   debian10:
     ci: false
     supported: false
+  debian13:
+    ci: false
+    supported: false
