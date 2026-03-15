@@ -1,3 +1,13 @@
+# [1.9.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.8.0...v1.9.0) (2026-03-15)
+
+
+### Features
+
+* Added support for Fedora 43 ([578a140](https://github.com/de-it-krachten/ansible-role-firewalld/commit/578a140a058e85964bbb2be5f90e390b77dbc49d))
+* Drop support for Fedora 41 ([cf89152](https://github.com/de-it-krachten/ansible-role-firewalld/commit/cf89152ca5d5b58743efc24ba4270b33476b067b))
+* Drop support for openSUSE Leap 15 ([7685cae](https://github.com/de-it-krachten/ansible-role-firewalld/commit/7685caeba1289175a356b6e1acb1c2b20479b95c))
+* Drop support for SUSE Linux Enterprise 15 ([2aca60d](https://github.com/de-it-krachten/ansible-role-firewalld/commit/2aca60de3e9d85e562c32d5b17bd8737f9ae3a3b))
+
 # [1.8.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.7.0...v1.8.0) (2025-08-07)
 
 
