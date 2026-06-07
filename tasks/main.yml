@@ -5,18 +5,18 @@
 
 - name: Supported on Debian >= 11
   ansible.builtin.fail:
-    msg: Not supported on {{ ansible_distribution }} < 11
-  when: ansible_distribution == 'Debian' and ansible_distribution_major_version | int < 11
+    msg: Not supported on {{ ansible_facts.distribution }} < 11
+  when: ansible_facts.distribution == 'Debian' and ansible_facts.distribution_major_version | int < 11
 
 - name: Supported on Ubuntu >= 20
   ansible.builtin.fail:
-    msg: Not supported on {{ ansible_distribution }} < 20
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_major_version | int < 20
+    msg: Not supported on {{ ansible_facts.distribution }} < 20
+  when: ansible_facts.distribution == 'Ubuntu' and ansible_facts.distribution_major_version | int < 20
 
 - name: Show support message
   ansible.builtin.fail:
     msg:
-      - "Role 'firewalld' is not supported on {{ ansible_distribution }} {{ ansible_distribution_major_version }}"
+      - "Role 'firewalld' is not supported on {{ ansible_facts.distribution }} {{ ansible_facts.distribution_major_version }}"
   when: firewalld_unsupported is defined and not firewalld_unsupported
 
 - name: Install firewalld
