@@ -36,8 +36,8 @@
     interface: "{{ item }}"
   loop: "{{ firewalld_trusted_interfaces }}"
   when:
-    - ansible_interfaces is defined
-    - item in ansible_interfaces
+    - ansible_facts.interfaces is defined
+    - item in ansible_facts.interfaces
 
 - name: Remove docker0 from zone 'trusted'
   ansible.posix.firewalld:
@@ -47,6 +47,6 @@
     permanent: yes
     interface: docker0
   when:
-    - ansible_interfaces is defined
-    - "'docker0' in ansible_interfaces"
+    - ansible_facts.interfaces is defined
+    - "'docker0' in ansible_facts.interfaces"
     - "'docker0' not in firewalld_trusted_interfaces"
