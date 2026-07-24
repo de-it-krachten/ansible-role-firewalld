@@ -1,3 +1,18 @@
+# [1.10.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.9.0...v1.10.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* Standarize vars.yml ([ef47c66](https://github.com/de-it-krachten/ansible-role-firewalld/commit/ef47c66d27a4f34bf53255a9cde70eea2555d306))
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([88a9c34](https://github.com/de-it-krachten/ansible-role-firewalld/commit/88a9c34a88c8af8848a5226186d5f3ec01663a94))
+* Added support for Fedora 44 ([79aeaa3](https://github.com/de-it-krachten/ansible-role-firewalld/commit/79aeaa3216efe423eaf67fa116e7f2bec6b0085f))
+* Added support for Ubuntu 26.04 LTS ([b5bf907](https://github.com/de-it-krachten/ansible-role-firewalld/commit/b5bf907d25347d348dd8e9830c0204fbad8c1b1e))
+* Drop support for Fedora 42 ([3d5e2e9](https://github.com/de-it-krachten/ansible-role-firewalld/commit/3d5e2e9eadeffad188f269c18ae284d9d5b80993))
+
 # [1.9.0](https://github.com/de-it-krachten/ansible-role-firewalld/compare/v1.8.0...v1.9.0) (2026-03-15)
 
 
